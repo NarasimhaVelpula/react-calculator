@@ -1,8 +1,9 @@
 import React from 'react'
 import './OutputScreen.css'
+import {useSelector} from 'react-redux'
 
-function OutputScreen(props) {
-    let {expression}=props
+function OutputScreen() {
+  const expression=useSelector((state)=>state.expression)
   return (
     <div className="outputScreen">{expression}</div>
   )

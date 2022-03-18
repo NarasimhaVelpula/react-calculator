@@ -2,36 +2,43 @@ import React,{useState} from 'react'
 import CalculatorButton from './components/CalculatorButton/CalculatorButton'
 import OutputScreen from './components/OutputScreen/OutputScreen'
 import './Home.css'
+import {useDispatch} from 'react-redux'
+import { Button } from '@mui/material';
+import {useNavigate} from 'react-router-dom'
+import {adder,remover,evaluator,reset} from '../../expressionSlice'
 
 function Home() {
-  const [expression, setExpression] = useState("")
+  let dispatcher=useDispatch()
+  let navigate=useNavigate()
   const handleClick=(exp)=>{
-      let newexp=expression+exp
-      setExpression(newexp)
+      dispatcher(adder(exp))
   }
 
   const handleEvaluate=(e)=>{
-      let ans=eval(expression)
-      setExpression(ans)
+      dispatcher(evaluator())
   }
 
   const handleReset=(e)=>{
-      setExpression("")
+      dispatcher(reset())
   }
 
   const handleDelete=(e)=>{
-      let newExp=expression.slice(0,-1)
-      setExpression(newExp)
+      dispatcher(remover())
+  }
+
+  const handleLogout=()=>{
+    navigate('/')
   }
 
   return (
+    <>
     <div className="calculator">
         <img style={{padding:'10px 10px'}}
       src="https://partner.tradecred.com/assets/img/TradeCredLogo.png"
       alt="new"
       />
       <h1 style={{textAlign:'center'}}>Calculator</h1>
-        <OutputScreen expression={expression} />
+        <OutputScreen />
         <hr />
         <div className="buttons">
             <div className="numbers">
@@ -60,6 +67,18 @@ function Home() {
             
         </div>
     </div>
+    <div style={{textAlign: 'center'}}>
+    <Button
+            className="loginButton" 
+            type="button"
+            color="success"
+            variant="contained"
+            onClick={handleLogout}
+        >
+            Logout
+        </Button>
+    </div>
+    </>
   )
 }
 
