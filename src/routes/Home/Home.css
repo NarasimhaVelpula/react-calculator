@@ -1,0 +1,24 @@
+.calculator{
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    background-color: aliceblue;
+    margin: 50px auto;
+
+}
+
+.buttons{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0px;
+    border: 1px solid black;
+}
+
+.operations{
+    flex: 2;
+}
+
+.numbers{
+    flex: 3;
+}
