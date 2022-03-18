@@ -1,11 +1,14 @@
 import { styled } from '@material-ui/core'
 import { Button } from '@mui/material'
 import React from 'react'
+import './CalculatorButton.css'
 
 function CalculatorButton(props) {
   const {text, handleClick}=props
   
+
   return (
+      <div className='button'>
     <Button
         color="success"
         variant="contained"
@@ -14,6 +17,7 @@ function CalculatorButton(props) {
     >
             {text}
     </Button>
+    </div>
   )
 }
 

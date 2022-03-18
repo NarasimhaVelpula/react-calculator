@@ -26,7 +26,13 @@ function Home() {
 
   return (
     <div className="calculator">
+        <img style={{padding:'10px 10px'}}
+      src="https://partner.tradecred.com/assets/img/TradeCredLogo.png"
+      alt="new"
+      />
+      <h1 style={{textAlign:'center'}}>Calculator</h1>
         <OutputScreen expression={expression} />
+        <hr />
         <div className="buttons">
             <div className="numbers">
             <CalculatorButton text="1" handleClick={handleClick} />

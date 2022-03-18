@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import './Login.css'
 import { Button } from '@mui/material';
 import styled from '@emotion/styled';
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 function Login() {
   const StyledText=styled(TextField)`
@@ -14,15 +14,17 @@ function Login() {
   `
   let navigate=useNavigate()
 
-  const HandleSubmit=()=>{
-      console.log("hre")
-      
+  const HandleSubmit=()=>{      
       navigate('/home')
   }
 
   return (
     <div className='form'>
-        <h1 style={{color:"green"}}>Calculator</h1>
+        <img style={{padding:'10px 10px'}}
+      src="https://partner.tradecred.com/assets/img/TradeCredLogo.png"
+      alt="new"
+      />
+        <h1 style={{color:"black"}}>Calculator Login</h1>
         <StyledText id="email" 
             label="Email" 
             variant="standard" 
@@ -50,6 +52,14 @@ function Login() {
             Login
         </StyledButton>
 
+        <Link to="/signin">
+        <Button 
+            variant="text"
+            color="success"
+        >
+            Not Registered, Click to here to Sign In
+        </Button>
+        </Link>
 
     </div>
   )
